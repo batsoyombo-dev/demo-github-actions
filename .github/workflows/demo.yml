@@ -4,11 +4,13 @@ on: push
 
 jobs:
   build:
+    env:
+      DEMO_TXT: demo-txt
     runs-on: ubuntu-latest
     steps:
       - name: Demo create file
         run: touch name.txt
       - name: Add line to file
-        run: echo dwqdwqdqw > name.txt
+        run: echo {{ env.DEMO_TXT }} > name.txt
       - name: Cat file
         run: cat name.txt
